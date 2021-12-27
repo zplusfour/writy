@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+  <link rel="stylesheet" href="/public/style.css">
+  <title>Writy - writing autocompletor</title>
+  <style>
+    .center {
+      padding: 70px 0;
+      text-align: center;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+    body {
+      background: #f5f5f5;
+      font-family: sans-serif;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    * {
+      font-family: sans-serif;
+    }
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    create a form with text and a submit button
+    when the form is submitted, the text is sent to the server
+  -->
+  <button id="myBtn">Help</button>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>
+        Write your text in the textarea (no matter what type is it (code or text) it will be sent to the server).
+        And OpenAI's model will predict the next word, or line.
+      </p>
+    </div>
+  </div>
+
+  <div class="center">
+    <form action="/" method="post">
+      <textarea required  type="text" name="text" placeholder="Type your text here..." style="height: 415px; width: 361px; border-radius: 10px 10px 10px 10px;">{{ text }}{{ autoq }}</textarea><br /><br /><br />
+      <input type="submit" value="Autocomplete" style="border-radius: 10px 10px 10px 10px;">
+    </form>
+  </div>
+  <script src="/public/script.js"></script>
+</body>
+</html>
